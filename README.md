@@ -22,13 +22,13 @@ Features
 
 *****Post Your Magic***: Click on the "New Post" button, upload your favorite image, add a captivating title, and express the story behind it through a compelling caption.**
 
-***Explore and Connect***: Discover a world of creativity on the homepage. Like and comment on posts that resonate with you. Connect with like-minded individuals and build lasting connections.**
+*****Explore and Connect***: Discover a world of creativity on the homepage. Like and comment on posts that resonate with you. Connect with like-minded individuals and build lasting connections.**
 
-Contribute
-We believe in the power of community-driven development. If you share our passion for visual storytelling and want to contribute to making MAGE POST even better, we'd love to have you on board! Feel free to fork the repository, make your enhancements, and submit a pull request.
+**Contribute**<br>
+**We believe in the power of community-driven development. If you share our passion for visual storytelling and want to contribute to making MAGE POST even better, we'd love to have you on board! Feel free to fork the repository, make your enhancements, and submit a pull request.**
 
-Found a Bug?
-Bugs are unwelcome visitors, but we're committed to exterminating them swiftly! If you encounter any issues while using MAGE POST, please open an issue on our GitHub repository. Describe the problem in detail, and we'll jump right on it!
+**Found a Bug?**
+**Bugs are unwelcome visitors, but we're committed to exterminating them swiftly! If you encounter any issues while using MAGE POST, please open an issue on our GitHub repository. Describe the problem in detail, and we'll jump right on it!**
 
-Spread the Magic!
-Help us spread the word about MAGE POST and invite more photography enthusiasts to join our creative community. Don't forget to star the repository on GitHub and share the project on social media using the hashtag #MagePost. Together, let's celebrate the art of visual storytelling!
+# Spread the Magic!
+# Help us spread the word about MAGE POST and invite more photography enthusiasts to join our creative community. Don't forget to star the repository on GitHub and share the project on social media using the hashtag #MagePost. Together, let's celebrate the art of visual storytelling!
