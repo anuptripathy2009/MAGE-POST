@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Posts</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .post-image {
+            height: 200px;
+            object-fit: contain;
+        }
+
+        /* Style for posts on the homepage */
+        .homepage-post .card-header {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .homepage-post .card-header h5 {
+            margin-bottom: 0;
+        }
+
+        .homepage-post .card-body {
+            background-color: #f8f9fa;
+        }
+        body {
+            padding-top: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar code for both logged-in and anonymous users -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Your Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if username %}
+                <li class="nav-item">
+                    <a class="btn btn-success mr-2" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success ml-2 mr-2" href="{{ url_for('my_posts') }}">My Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-info" href="{{ url_for('account') }}">Account</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="btn btn-primary mr-2" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning" href="{{ url_for('signup') }}">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success ml-2 mr-2" href="{{ url_for('my_posts') }}">My Posts</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>My Posts</h1>
+        <a class="btn btn-primary mb-3" href="{{ url_for('create_post') }}">Create Post</a>
+        {% if posts %}
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">{{ post.user.username }}</h5>
+                    </div>
+                    <img src="{{ url_for('static', filename='uploads/' + post.image) }}" class="card-img-top post-image"
+                        alt="Post Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.caption }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <h1>No posts to display.</h1>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS (same as other templates) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

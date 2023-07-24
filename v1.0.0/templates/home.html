@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mage Post</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .post-image {
+            height: 200px;
+            /* Set the desired fixed height for the images */
+            object-fit: contain;
+            /* Ensure the full image is shown within the fixed height */
+        }
+        body {
+            padding-bottom: 70px; /* Adjust this value based on the footer height */
+            padding-top : 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar for both logged-in and anonymous users -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">_MAGE_POST_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"> <!-- Changed ml-auto to ml-md-auto -->
+                {% if username %}
+                <li class="nav-item">
+                    <a class="btn btn-success mr-2" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success mr-2" href="{{ url_for('my_posts') }}">My Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger mr-2" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-info" href="{{ url_for('account') }}">Account</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="btn btn-primary mr-2" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning" href="{{ url_for('signup') }}">Signup</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Success message for logged-in users -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'success' %}
+    <div class="alert alert-{{ category }}" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <!-- Content Area (Main Body) -->
+    <div class="container mt-4">
+        {% if posts %}
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4 homepage-post">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">{{ post.user.username }}</h5>
+                    </div>
+                    <a href="{{ url_for('post_details', post_id=post.id) }}">
+                        <img src="{{ url_for('static', filename='uploads/' + post.image) }}" class="card-img-top post-image"
+                            alt="Post Image">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        {% if post.caption.split() | length > 8 %}
+                        <p class="card-text">{{ post.caption.split()[:8] | join(' ') }}...</p>
+                        {% else %}
+                        <p class="card-text">{{ post.caption }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <h1>No posts to display by other users. Be the first one to create a post!</h1>
+        {% endif %}
+    </div>
+    <!-- Footer -->
+    <footer class="footer fixed-bottom bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; {{ current_year }} Your Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

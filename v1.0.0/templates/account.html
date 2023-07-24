@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Account</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Navbar for the account page -->
+    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Your Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="btn btn-info mr-2" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="mt-4">Account</h1>
+        <h2>Hello {{ username }}!</h2>
+        <form method="post" action="{{ url_for('account') }}" class="mt-4">
+            <button type="submit" name="delete_account" class="btn btn-danger">Delete Account</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

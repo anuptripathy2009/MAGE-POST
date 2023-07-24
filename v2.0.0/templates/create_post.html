@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create a Post</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Your Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if username %}
+                <li class="nav-item">
+                    <a class="btn btn-success mr-2" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger mr-2" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success" href="{{ url_for('my_posts') }}">My Posts</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="btn btn-primary mr-2" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning" href="{{ url_for('signup') }}">Signup</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Create a Post</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form method="post" action="{{ url_for('create_post') }}" enctype="multipart/form-data" class="mt-4">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" name="title" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="caption">Caption:</label>
+                <textarea name="caption" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" name="image" class="form-control-file" required>
+            </div>
+            <button type="submit" class="btn btn-success">Create Post</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (same as other templates) -->
+</body>
+
+</html>
