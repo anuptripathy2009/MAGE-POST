@@ -31,4 +31,4 @@ Features
 **Bugs are unwelcome visitors, but we're committed to exterminating them swiftly! If you encounter any issues while using MAGE POST, please open an issue on our GitHub repository. Describe the problem in detail, and we'll jump right on it!**
 
 # Spread the Magic!
-# Help us spread the word about MAGE POST and invite more photography enthusiasts to join our creative community. Don't forget to star the repository on GitHub and share the project on social media using the hashtag #MagePost. Together, let's celebrate the art of visual storytelling!
+# Help us spread the word about MAGE POST and invite more photography enthusiasts to join our creative community. Don't forget to *star* the repository on GitHub and share the project on social media using the hashtag #MagePost. Together, let's celebrate the art of visual storytelling!...
