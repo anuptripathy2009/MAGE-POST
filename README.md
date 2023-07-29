@@ -1,7 +1,7 @@
 # MAGE POST - Share Your World Through Captivating Images!
 # Some ScreenShots
-<img src="screenshots/mage-post-screenshot.png" />
-<img src="screenshots/screenshot_of_mage_post.png" />
+![mage-post-screenshot](https://github.com/anuptripathy2009/MAGE-POST/assets/89001421/637d0dde-81fb-4976-88cd-c6fd478ee65d)
+![screenshot-of-mage_post](https://github.com/anuptripathy2009/MAGE-POST/assets/89001421/3a81894e-441c-45c4-a5e4-5813fc513fb9)
 
 **Welcome to MAGE POST, a visually stunning web application that allows users to create and share their unique experiences through captivating images! With an easy-to-use interface, seamless account management, and an engaging homepage showcasing a diverse range of user posts, MAGE POST is the perfect platform to connect with others who share your passion for photography and creativity.**
 
